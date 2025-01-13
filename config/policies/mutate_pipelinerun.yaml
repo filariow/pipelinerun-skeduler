@@ -1,0 +1,18 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: pipelinerun-set-pending-state
+spec:
+  rules:
+    - name: pipelinerun-set-pending-state
+      match:
+        any:
+        - resources:
+            kinds:
+            - PipelineRun
+            operations:
+            - CREATE
+      mutate:
+        patchStrategicMerge:
+          spec:
+            status: PipelineRunPending

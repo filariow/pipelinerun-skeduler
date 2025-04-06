@@ -1,6 +1,8 @@
 module github.com/filariow/pipelinerun-skeduler
 
-go 1.22.0
+go 1.23
+
+toolchain go1.23.8
 
 require (
 	github.com/onsi/ginkgo/v2 v2.19.0
